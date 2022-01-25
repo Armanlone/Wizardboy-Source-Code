@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Key
+  - Platform
+  - Door
+  - Trap
+  - Jumpable
+  - Slippery
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Ground
+  - Interactables
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3605086769
+    locked: 0
+  - name: Midground
+    uniqueID: 1320967939
+    locked: 0
+  - name: Player
+    uniqueID: 1668678963
+    locked: 0
+  - name: Foreground
+    uniqueID: 3236976415
+    locked: 0
+  - name: UI
+    uniqueID: 2073425669
+    locked: 1
