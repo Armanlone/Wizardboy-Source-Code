@@ -13,7 +13,7 @@ namespace Game.ControlsManagement
         
         [Tooltip("Key to press to do the things.")]
         [SerializeField]
-        private KeyCode keyToPress = KeyCode.None;
+        private Key keyToPress = null;
 
         [Space]
 
@@ -21,15 +21,14 @@ namespace Game.ControlsManagement
         [SerializeField]
         private UnityEvent onPress = new UnityEvent();
 
-	//new bool
-	[SerializeField]
+        [SerializeField]
         private bool needsToCheckPlayMode = false;
 
         // Just press a key to do the things, even if it's "KeyCode.None".
         private void Update()
         {
 
-            if (keyToPress == KeyCode.None)
+            if (ControlsManager.GetKey(keyToPress.keyName) == KeyCode.None)
             {
                 
                 if (Input.anyKeyDown)
@@ -40,16 +39,16 @@ namespace Game.ControlsManagement
             else
             {
                 
-                if (Input.GetKeyDown(keyToPress))
-		{
+                if (Input.GetKeyDown(ControlsManager.GetKey(keyToPress.keyName)))
+                {
 
-			if (needsToCheckPlayMode && !GameManager.getIsGamePause() && !GameManager.getIsGameOver()  && !GameManager.getIsLevelClear())
-				onPress?.Invoke();
-			
-			else if (!needsToCheckPlayMode)
-				onPress?.Invoke();
+                    if (needsToCheckPlayMode && !GameManager.getIsGamePause() && !GameManager.getIsGameOver()  && !GameManager.getIsLevelClear())
+                        onPress?.Invoke();
+                    
+                    else if (!needsToCheckPlayMode)
+                        onPress?.Invoke();
 
-		}
+                }
 
             }
             

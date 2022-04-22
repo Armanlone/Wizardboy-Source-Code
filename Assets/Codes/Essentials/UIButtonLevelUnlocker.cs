@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Game.LevelManagement;
 
 public class UIButtonLevelUnlocker : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class UIButtonLevelUnlocker : MonoBehaviour
             return;
         }
 
-        _button.interactable = levelIndex <= PlayerPrefs.GetInt("levelsUnlocked");
+        _button.interactable = levelIndex <= PlayerPrefs.GetInt(LevelManager.getLevelsUnlockedKey());
 
     }
 

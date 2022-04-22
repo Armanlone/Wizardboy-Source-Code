@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using Game;
+using Game.ControlsManagement;
 using UnityEngine.UI;
 
 namespace Mechanics
@@ -23,7 +24,7 @@ namespace Mechanics
 
         [Tooltip("A key for pressing the rewind.")]
         [SerializeField]
-        private KeyCode keyRewind = KeyCode.Space;
+        private Key keyRewind = null;
 
         [SerializeField]
         private Text text = null;
@@ -64,7 +65,7 @@ namespace Mechanics
                 return;
             }
 
-            isPressingSpace = Input.GetKey(keyRewind);
+            isPressingSpace = Input.GetKey(ControlsManager.GetKey(keyRewind.keyName));
 
             isGameInPlayMode = !GameManager.getIsLevelClear() && !GameManager.getIsGameOver() && !GameManager.getIsGamePause();
 

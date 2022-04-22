@@ -1,13 +1,14 @@
 using UnityEngine;
 using Game;
 using Game.SpriteAnimation;
-using Game.AudioManagement;
+using Game.ControlsManagement;
 
 namespace Platformer2DMechanics.CharacterControl
 {
     
     ///<summary>
     /// Script for the players.
+    /// NOTE: Optimized for rebinding the keys using ControlsManager.
     ///</summary>
 
     [RequireComponent(typeof(Movement))]
@@ -34,11 +35,13 @@ namespace Platformer2DMechanics.CharacterControl
 
         [Tooltip("Button for walking.")]
         [SerializeField]
-        private string buttonWalk = "Walk";
+        private string buttonWalk = "Movement";
 
         [Tooltip("Button for jumping.")]
         [SerializeField]
         private string buttonJump = "Jump";
+
+        private const string MOVEMENT_ARROW_KEYS = "MovementArrowKeys", MOVEMENT_WASD = "MovementWASD";
 
         /*[Tooltip("SFX time delay.")]
         [SerializeField]
@@ -73,7 +76,20 @@ namespace Platformer2DMechanics.CharacterControl
             else
             {
                 
-                Vector2 input = new Vector2(Input.GetAxisRaw(buttonWalk), 0f);
+                //Vector2 input = new Vector2(Input.GetAxisRaw("Walk"), 0f);
+                Vector2 input = Vector2.zero;
+
+                if (ControlsManager.GetKey(buttonWalk) != KeyCode.D)
+                {
+                    print("Keycode Right Arrow");
+                    input = new Vector2(Input.GetAxisRaw(MOVEMENT_ARROW_KEYS), 0f);
+                }
+
+                else
+                {
+                    print("Keycode D");
+                    input = new Vector2(Input.GetAxisRaw(MOVEMENT_WASD), 0f);
+                }
 
                 movement.SetInput(input);
 
@@ -100,13 +116,20 @@ namespace Platformer2DMechanics.CharacterControl
                 else
                 {
 
-                    if (Input.GetButtonUp(buttonJump) && canJump)
+                    /*if (Input.GetButtonUp(buttonJump) && canJump)
                         movement.OnJumpInputUp();
                         
 
                     if (Input.GetButtonDown(buttonJump) && canJump)
                         movement.OnJumpInputDown();
-                
+                    */
+
+                    if (Input.GetKeyUp(ControlsManager.GetKey(buttonJump))  && canJump)
+                        movement.OnJumpInputUp();
+
+                    if (Input.GetKeyDown(ControlsManager.GetKey(buttonJump)) && canJump)
+                        movement.OnJumpInputDown();
+                    
                 }
 
                 if (animations == null)

@@ -153,7 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e29d9548eb1884e968a8b6cfe24539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 13
+  keyToPress:
+    keyName: Read
+    keyID: 0
+    keyCode: 0
   onPress:
     m_PersistentCalls:
       m_Calls:

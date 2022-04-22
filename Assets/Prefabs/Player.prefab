@@ -51,7 +51,7 @@ MonoBehaviour:
   movement: {fileID: 7655629024122740908}
   animations: {fileID: 7655629024516315640}
   spriteFlipper: {fileID: 7655629024516315643}
-  buttonWalk: Walk
+  buttonWalk: Movement
   buttonJump: Jump
 --- !u!114 &7655629024122740908
 MonoBehaviour:
@@ -251,7 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9d428e6164d4e478aaf2ff20a12f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playAudioEvenWhenNotInGameMode: 0
 --- !u!1 &7655629024660621294
 GameObject:
   m_ObjectHideFlags: 0

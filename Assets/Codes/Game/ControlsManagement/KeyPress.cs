@@ -13,7 +13,7 @@ namespace Game.ControlsManagement
         
         [Tooltip("Key to press to do the things.")]
         [SerializeField]
-        private KeyCode keyToPress = KeyCode.None;
+        private Key keyToPress = null;
 
         [Space]
 
@@ -25,7 +25,7 @@ namespace Game.ControlsManagement
         public void Press()
         {
 
-            if (keyToPress == KeyCode.None)
+            if (ControlsManager.GetKey(keyToPress.keyName) == KeyCode.None)
             {
                 
                 if (Input.anyKeyDown)
@@ -36,7 +36,7 @@ namespace Game.ControlsManagement
             else
             {
                 
-                if (Input.GetKeyDown(keyToPress))
+                if (Input.GetKeyDown(ControlsManager.GetKey(keyToPress.keyName)))
                     onPress?.Invoke();
 
             }

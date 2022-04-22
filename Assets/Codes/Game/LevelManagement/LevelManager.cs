@@ -13,6 +13,8 @@ namespace Game.LevelManagement
     {
         private static LevelManager INSTANCE = null;
 
+        private const string LEVELS_UNLOCKED_KEY = "levelsUnlocked";
+
         private void Awake()
         {
             if (INSTANCE != null && INSTANCE != this)
@@ -73,6 +75,12 @@ namespace Game.LevelManagement
         public static int getCurrentSceneBuildIndex()
         {
             return SceneManager.GetActiveScene().buildIndex;
+        }
+
+        // LEVELS_UNLOCKED_KEY
+        public static string getLevelsUnlockedKey()
+        {
+            return LEVELS_UNLOCKED_KEY;
         }
 
     }

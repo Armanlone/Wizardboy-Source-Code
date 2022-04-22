@@ -71,7 +71,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc0b72205cb9ad49a64ea4dd3d85cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 32
+  keyToPress:
+    keyName: Rewind
+    keyID: 0
+    keyCode: 0
   onPress:
     m_PersistentCalls:
       m_Calls:
@@ -99,7 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129c25a87fe730a47af024aff47ca8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 32
+  keyToPress:
+    keyName: Rewind
+    keyID: 0
+    keyCode: 0
   onPress:
     m_PersistentCalls:
       m_Calls:
@@ -126,7 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2fa1978eb51e0498c33970455f2c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToRelease: 32
+  keyToRelease:
+    keyName: Rewind
+    keyID: 0
+    keyCode: 0
   onRelease:
     m_PersistentCalls:
       m_Calls:

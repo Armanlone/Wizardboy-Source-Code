@@ -14,7 +14,7 @@ namespace Game.ControlsManagement
         
         [Tooltip("Key to press to do the things.")]
         [SerializeField]
-        private KeyCode keyToRelease = KeyCode.None;
+        private Key keyToRelease = null;
 
         [Space]
 
@@ -26,7 +26,7 @@ namespace Game.ControlsManagement
         private void Update()
         {
 
-            if (Input.GetKeyUp(keyToRelease) && !GameManager.getIsGamePause() && !GameManager.getIsGameOver() && !GameManager.getIsLevelClear())
+            if (Input.GetKeyUp(ControlsManager.GetKey(keyToRelease.keyName)) && !GameManager.getIsGamePause() && !GameManager.getIsGameOver() && !GameManager.getIsLevelClear())
                     onRelease?.Invoke();
                     
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Game;
+using Game.ControlsManagement;
 using Platformer2DMechanics.CharacterControl;
 
 public class Rewindable : MonoBehaviour
@@ -8,6 +9,10 @@ public class Rewindable : MonoBehaviour
 
     [SerializeField]
     private KeyCode rewindKey = KeyCode.Z;
+
+    [Tooltip("Button for rewinding.")]
+    [SerializeField]
+    private string buttonRewind = "Rewind";
 
     [SerializeField]
     private Movement movement = null;
@@ -31,6 +36,8 @@ public class Rewindable : MonoBehaviour
     private void Update()
     {
 
+        /*
+
         if (Input.GetKeyDown(rewindKey))
         {
             StartRewind();
@@ -40,6 +47,19 @@ public class Rewindable : MonoBehaviour
         {
             StopRewind();
         }
+
+        */
+
+        if (Input.GetKeyDown(ControlsManager.GetKey(buttonRewind)))
+        {
+            StartRewind();
+        }
+
+        if (Input.GetKeyUp(ControlsManager.GetKey(buttonRewind)))
+        {
+            StopRewind();
+        }
+
     }
 
     private void FixedUpdate()
